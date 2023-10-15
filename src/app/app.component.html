@@ -43,8 +43,9 @@ Enter number1 : <input #number2 type="number" [(ngModel)]="num2" id="n2"><br><br
 
 <body>
    <input [(ngModel)]="task" (keyup.enter)="add()" placeholder="Add a task">
+   <br><br>
    
-   <button class="btn btn-primary"(click)="add()">Add</button>
+   <button class="btn btn-primary" (click)="add()">Add</button>
    
    <div *ngIf="isEdit">
       <button class="btn btn-primary" (click)="save()">Save</button>
