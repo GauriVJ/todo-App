@@ -1,4 +1,3 @@
-
 <!-- Enter number1 : <input #number1 type="number" [(ngModel)]="num1" id="n1"><br><br>
 Enter number1 : <input #number2 type="number" [(ngModel)]="num2" id="n2"><br><br>
 <button (click)="total()">Add</button>
@@ -13,8 +12,8 @@ Enter number1 : <input #number2 type="number" [(ngModel)]="num2" id="n2"><br><br
 </div> -->
 
 <!-- <div [ngSwitch]="today"> -->
-    <!-- the same view can be shown in more than one case -->
-    <!-- <div *ngSwitchCase="'mon'">Today is Monday<div>
+<!-- the same view can be shown in more than one case -->
+<!-- <div *ngSwitchCase="'mon'">Today is Monday<div>
     <div *ngSwitchCase="'tue'">Today is Tuesday</div>
     <div *ngSwitchCase="'wed'">Today is Wednesday</div>
     <div *ngSwitchCase="'thurs'">Today is Thursday<div>
@@ -22,14 +21,39 @@ Enter number1 : <input #number2 type="number" [(ngModel)]="num2" id="n2"><br><br
     <div *ngSwitchCase="'sat'">Today is Saturday</div>
     <div *ngSwitchCase="'sun'">Today is Sunday<div> -->
 
-    <!--default case when there are no matches -->
-    <!-- <div *ngSwitchDefault>Enter valid day of week</div>
+<!--default case when there are no matches -->
+<!-- <div *ngSwitchDefault>Enter valid day of week</div>
     </div> -->
+<!-- <style>
+     .a{
+        color: green;
+     }
+     .b{
+        color:red;
+     }
 
-    <input  type="text" placeholder="enter userrname" [(ngModel)]="username" >
-    <input  type="text" placeholder="enter password" [(ngModel)]="password">
-    <div *ngIf="login; else elseBlock">Login Successful</div>
-    <ng-template #elseBlock>login failed</ng-template>
+    </style>
+    <input  type="text" placeholder="enter userrname" [(ngModel)]="username" ><br><br>
+    <input  type="password" placeholder="enter password" [(ngModel)]="password"><br><br>
     
+    <button (click)="disp()">Login</button><br><br>
+    
+    <div *ngIf="login == true; else elseBlock"><h2 class="a">{{str1}}</h2></div>
+    <ng-template #elseBlock><h2 class="b">{{str2}}</h2></ng-template> -->
 
-    <button (click)="disp()">Login</button>
+<body>
+   <input [(ngModel)]="task" (keyup.enter)="add()" placeholder="Add a task">
+   
+   <button (click)="add()">Add</button>
+   
+   <div *ngIf="isEdit">
+      <button (click)="save()">Save</button>
+      <button (click)="cancelEdit()">cancelEdit</button></div>
+   <br>{{err}}
+   <ol>
+      <li *ngFor="let item of todo; let i = index">
+         {{ item }} 
+         <button (click)="remove(i)"> Delete </button>
+         <button (click)="edit(i)">Edit</button>
+      </li>
+   </ol>
