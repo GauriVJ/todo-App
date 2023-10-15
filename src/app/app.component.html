@@ -44,16 +44,16 @@ Enter number1 : <input #number2 type="number" [(ngModel)]="num2" id="n2"><br><br
 <body>
    <input [(ngModel)]="task" (keyup.enter)="add()" placeholder="Add a task">
    
-   <button (click)="add()">Add</button>
+   <button class="btn btn-primary"(click)="add()">Add</button>
    
    <div *ngIf="isEdit">
-      <button (click)="save()">Save</button>
-      <button (click)="cancelEdit()">cancelEdit</button></div>
+      <button class="btn btn-primary" (click)="save()">Save</button>
+      <button class="btn btn-primary" (click)="cancelEdit()">cancelEdit</button></div>
    <br>{{err}}
    <ol>
       <li *ngFor="let item of todo; let i = index">
          {{ item }} 
-         <button (click)="remove(i)"> Delete </button>
-         <button (click)="edit(i)">Edit</button>
+         <button class="btn btn-primary" (click)="remove(i)"> Delete </button>
+         <button class="btn btn-primary" (click)="edit(i)">Edit</button>
       </li>
-   </ol>
+         </ol>
